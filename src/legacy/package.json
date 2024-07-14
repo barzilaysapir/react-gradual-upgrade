@@ -1,0 +1,12 @@
+{
+  "name": "legacy",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-redux": "^5.1.2",
+    "react-router-dom": "5.2.0",
+    "react-router": "^5.3.4"
+  }
+}
