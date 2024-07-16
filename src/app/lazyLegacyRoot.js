@@ -25,14 +25,14 @@ export default function lazyLegacyRoot(getLegacyComponent) {
 
     return function Wrapper(props) {
         const createLegacyRoot = readModule(rendererModule, () =>
-            import('../../legacy/src/createLegacyRoot')
+            import('./legacy/createLegacyRoot')
         ).default;
         const Component = readModule(componentModule, getLegacyComponent).default;
         const containerRef = useRef(null);
         const rootRef = useRef(null);
 
         // Populate every contexts we want the legacy subtree to see.
-        // Then in src/legacy/createLegacyRoot we will apply them.
+        // Then in legacy/createLegacyRoot we will apply them.
         const router = useContext(__RouterContext);
         const reactRedux = useContext(ReactReduxContext);
         const context = useMemo(

@@ -1,23 +1,23 @@
 import React, {Suspense} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
 import lazyLegacyRoot from "./lazyLegacyRoot";
 
-const Legacy = lazyLegacyRoot(() => import('../../legacy/src/index'));
+const Legacy = lazyLegacyRoot(() => import('./legacy'));
 
 function App() {
     return (
         <div className="App">
+            <Suspense fallback={<p>Loading...</p>}>
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
-                <Suspense fallback={<p>Loading...</p>}>
-                    <p>
-                        {React.version}
-                    </p>
-                    <hr/>
+
+                    <pre>
+                        App: {React.version}
+                    </pre>
+                    
                     <Legacy/>
-                </Suspense>
             </header>
+        </Suspense>
         </div>
     );
 }
